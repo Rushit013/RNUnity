@@ -1,0 +1,8 @@
+rootProject.name = 'RNUnity'
+apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
+include ':app'
+includeBuild('../node_modules/@react-native/gradle-plugin')
+
+include ':reactunity' 
+include ':unityLibrary'
+project(':unityLibrary').projectDir=new File("..\\unityBuild\\unityLibrary")
