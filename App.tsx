@@ -6,16 +6,27 @@ import {
   TouchableOpacity,
   View,
   NativeModules,
+  Platform,
+  NativeEventEmitter,
 } from 'react-native';
 
 function App(): JSX.Element {
+  const NativeEvents =
+    Platform.OS === 'ios'
+      ? new NativeEventEmitter(NativeModules.rnunitygames)
+      : new NativeEventEmitter(NativeModules.Game_platform);
+
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
       <View style={styles.rootContainer}>
         <TouchableOpacity
           style={styles.actionButton}
           onPress={() => {
-            NativeModules.Game_platform.sendDataToUnity(JSON.stringify({}));
+            if (Platform.OS === 'ios') {
+              NativeModules.rnunitygames.sendDataToUnity(JSON.stringify({}));
+            } else {
+              NativeModules.Game_platform.sendDataToUnity(JSON.stringify({}));
+            }
           }}>
           <Text style={styles.buttonLabel}>Launch Game</Text>
         </TouchableOpacity>
