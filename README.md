@@ -2,7 +2,7 @@
 
 ## About
 
-This project was created for the tutorial [PART I: Integrating Unity Games to React Native [Android]](https://medium.com/@rushitjivani/ddd8fdfdf5d9). This doesn't include the explanation of the project and how it should be configured. To see the complete solution, you can go to [this git repository](https://github.com/Rushit013/RNUnity.git).
+This project was created for the tutorial [PART I: Integrating Unity Games to React Native [Android]](https://medium.com/gitconnected/part-i-integrating-unity-games-to-react-native-android-ddd8fdfdf5d9) and [PART II: Integrating Unity Games to React Native [iOS]](https://medium.com/gitconnected/part-ii-integrating-unity-games-to-react-native-ios-71db9b23d885). This doesn't include the explanation of the project and how it should be configured. To see the complete solution, you can go to [this git repository](https://github.com/Rushit013/RNUnity.git).
 
 ## Quick start
 
