@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import {
   SafeAreaView,
   StyleSheet,
@@ -8,13 +8,25 @@ import {
   NativeModules,
   Platform,
   NativeEventEmitter,
+  LogBox,
+  Alert,
 } from 'react-native';
 
+LogBox.ignoreAllLogs();
 function App(): JSX.Element {
   const NativeEvents =
     Platform.OS === 'ios'
       ? new NativeEventEmitter(NativeModules.rnunitygames)
       : new NativeEventEmitter(NativeModules.Game_platform);
+
+  useEffect(() => {
+    NativeEvents.addListener('onSubmit', res => {
+      console.log('--- onSubmit: ', res.data);
+      Alert.alert('Data from Unity', res.data);
+    });
+
+    () => NativeEvents.removeAllListeners('onSubmit');
+  }, []);
 
   return (
     <SafeAreaView style={styles.safeAreaContainer}>
